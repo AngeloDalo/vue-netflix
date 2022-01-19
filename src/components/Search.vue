@@ -27,6 +27,12 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.search {
+    position: relative;
+    left: 41%;
+    button {
+        margin-left: 2em;
+    }
+}
 </style>

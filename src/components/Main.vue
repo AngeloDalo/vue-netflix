@@ -1,26 +1,24 @@
 <template>
   <main>
-      <div class="container">
-          <div class="row">
+      <div class="container-fluid">
+          <div class="row mt-5">
               <div class="col-12">
                   <Search
                         @searchFilm="searchFilm($event)"
                    />
               </div>
           </div>
-          <div class="row mt-5">
-              <div class="col-12">
-                  <ul>
-                        <MainFilm
-                        v-for="(cardFilm, index) in cardFilms"
-                        :key="index"
-                        :title = "cardFilm.title"
-                        :originalTitle = "cardFilm.original_title"
-                        :language = "cardFilm.original_languale"
-                        :vote = "cardFilm.vote_average"
-                        />
-                  </ul>
-              </div>
+          <div class="container mt-5">
+                <ul class="row">
+                    <MainFilm
+                    v-for="(cardFilm, index) in cardFilms"
+                    :key="index"
+                    :title = "cardFilm.title"
+                    :originalTitle = "cardFilm.original_title"
+                    :language = "cardFilm.original_languale"
+                    :vote = "cardFilm.vote_average"
+                    />
+                </ul>
           </div>
       </div>
   </main>

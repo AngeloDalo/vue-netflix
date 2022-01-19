@@ -1,6 +1,6 @@
 <template>
   <header>
-      BoolFlix
+      <span>BoolFlix</span>
   </header>
 </template>
 
@@ -18,4 +18,8 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
+header {
+    margin-top: 3em;
+    text-align: center;
+}
 </style>
