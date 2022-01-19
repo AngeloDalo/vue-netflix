@@ -1,3 +1,12 @@
 c84442c7cda19b672849e1f2bfc0459d CHIAVE
 https://api.themoviedb.org/3/movie/550?api_key=c84442c7cda19b672849e1f2bfc0459d RICHIESTA API
 eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjODQ0NDJjN2NkYTE5YjY3Mjg0OWUxZjJiZmMwNDU5ZCIsInN1YiI6IjYxZTdkZWZjOTQ0YTU3MDExMTYyNzEyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XxjWQfKt3cjRPOe-GZxps43FU0QaIWra8g6ruq3aY5s ACCESS TOKEN
+
+/movie/{movie_id} MOVIE
+
+Esempio chiamata: 
+https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=ritorno+al+futuro
+
+Mia chiamata:
+https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d&query=ritorno+al+futuro
+https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d&query=
