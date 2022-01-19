@@ -9,7 +9,18 @@
               </div>
           </div>
           <div class="row mt-5">
-              film
+              <div class="col-12">
+                  <ul>
+                        <MainFilm
+                        v-for="(cardFilm, index) in cardFilms"
+                        :key="index"
+                        :title = "cardFilm.title"
+                        :originalTitle = "cardFilm.original_title"
+                        :language = "cardFilm.original_languale"
+                        :vote = "cardFilm.vote_average"
+                        />
+                  </ul>
+              </div>
           </div>
       </div>
   </main>
@@ -18,15 +29,17 @@
 <script>
 import axios from 'axios';
 import Search from "./Search.vue"
+import MainFilm from "./MainFilm.vue"
 export default {
     name: 'Main',
     //metto elemento figlio
     components: {
         Search,
+        MainFilm,
     },
     data () {
         return {
-            cardFilm: null,
+            cardFilms: null,
             filmName: 'no',
             queryPath: 'https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d',
         }
@@ -38,7 +51,6 @@ export default {
     methods: {
         searchFilm(event) {
             this.filmName  = event;
-            console.log(this.filmName);
             axios
             .get(this.queryPath, {
                 params: {
@@ -46,8 +58,7 @@ export default {
                 }
             })
             .then((response) => {
-                this.cardFilm = response.data.results;
-                console.log(this.cardFilm);
+                this.cardFilms = response.data.results;
             })
             .catch(function (error) {
                 console.log(error);
