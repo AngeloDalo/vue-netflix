@@ -1,26 +1,44 @@
 <template>
   <main>
-      main
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <Search
+                        @searchFilm="searchFilm($event)"
+                   />
+              </div>
+          </div>
+          <div class="row mt-5">
+              film
+          </div>
+      </div>
   </main>
 </template>
 
 <script>
 //import axios from 'axios';
+import Search from "./Search.vue"
 export default {
     name: 'Main',
     //metto elemento figlio
     components: {
+        Search,
     },
     data () {
         return {
+            filmName: null,
         }
     },
     computed: {
     },
     created() {
-        
+
     },
     methods: {
+        searchFilm(event) {
+            this.filmName  = event;
+            console.log(this.filmName);
+        }
     }
 }
 </script>

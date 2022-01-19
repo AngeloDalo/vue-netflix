@@ -1,6 +1,6 @@
 <template>
   <header>
-      header
+      BoolFlix
   </header>
 </template>
 
