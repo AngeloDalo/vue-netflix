@@ -1,6 +1,6 @@
 <template>
   <header>
-      <span>BoolFlix</span>
+      <h1>BoolFlix</h1>
   </header>
 </template>
 

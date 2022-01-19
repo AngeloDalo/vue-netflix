@@ -2,15 +2,18 @@
     <li class="col-4 mb-5">
         <h1> {{ title }} </h1>
         <h2> {{ originalTitle }} </h2>
-        <h3> {{ language }} </h3>
+        <!-- <h3> {{ language }} </h3> -->
         <h4> {{ vote }} </h4>
+        <img class="flag-image"
+        :src="src"
+        :alt="alt">
     </li>
 </template>
 
 <script>
 export default {
-    name: "MainFilm",
-    props: ['title', 'originalTitle', 'language', 'vote'],
+    name: "MainFilmSerie",
+    props: ['src', 'alt', 'title', 'originalTitle', 'language', 'vote'],
     data() {
         return {
 
@@ -33,5 +36,8 @@ li {
     h4 {
         font-size: 0.8em;
     }
+}
+img {
+    width: 40px;
 }
 </style>

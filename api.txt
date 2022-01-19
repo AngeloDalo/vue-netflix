@@ -10,6 +10,10 @@ https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f660325671
 Mia chiamata:
 https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d&query=ritorno+al+futuro
 https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d&query=
+https://api.themoviedb.org/3/search/tv?api_key=c84442c7cda19b672849e1f2bfc0459d&query=
 
 
 https://api.themoviedb.org/3/movie/876613/images?api_key=c84442c7cda19b672849e1f2bfc0459d&language=en-US
+
+Lingua
+https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs

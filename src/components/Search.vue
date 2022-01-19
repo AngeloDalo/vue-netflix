@@ -11,7 +11,7 @@
       type="submit"
       @click="$emit('searchFilm', inputText)"
     >
-        Cerca Film
+        Cerca Film o Serie TV
     </button>
   </div>
 </template>

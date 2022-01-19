@@ -8,15 +8,31 @@
                    />
               </div>
           </div>
-          <div class="container mt-5">
-                <ul class="row">
-                    <MainFilm
+          <div class="container mt-5 text-center">
+                <h1>FILM</h1>
+                <ul class="row mt-5">
+                    <MainFilmSerie
                     v-for="(cardFilm, index) in cardFilms"
                     :key="index"
                     :title = "cardFilm.title"
                     :originalTitle = "cardFilm.original_title"
-                    :language = "cardFilm.original_languale"
+                    :language = "cardFilm.original_language"
                     :vote = "cardFilm.vote_average"
+                    :src = "flagFilm[index]"
+                    :alt = "cardFilm.original_language"
+                    />
+                </ul>
+                <h1>SERIE TV</h1>
+                <ul class="row mt-5">
+                    <MainFilmSerie
+                    v-for="(cardSerie, index) in cardSeries"
+                    :key="index"
+                    :title = "cardSerie.name"
+                    :originalTitle = "cardSerie.original_name"
+                    :language = "cardSerie.original_language"
+                    :vote = "cardSerie.vote_average"
+                    :src = "flagSerie[index]"
+                    :alt = "cardSerie.original_language"
                     />
                 </ul>
           </div>
@@ -27,19 +43,23 @@
 <script>
 import axios from 'axios';
 import Search from "./Search.vue"
-import MainFilm from "./MainFilm.vue"
+import MainFilmSerie from "./MainFilmSerie.vue"
 export default {
     name: 'Main',
     //metto elemento figlio
     components: {
         Search,
-        MainFilm,
+        MainFilmSerie,
     },
     data () {
         return {
+            flagFilm: [],
+            flagSerie: [],
             cardFilms: null,
+            cardSeries: null,
             filmName: 'no',
-            queryPath: 'https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d',
+            queryPathFILM: 'https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d',
+            queryPathTV: 'https://api.themoviedb.org/3/search/tv?api_key=c84442c7cda19b672849e1f2bfc0459d&query='
         }
     },
     computed: {
@@ -50,13 +70,46 @@ export default {
         searchFilm(event) {
             this.filmName  = event;
             axios
-            .get(this.queryPath, {
+            .get(this.queryPathFILM, {
                 params: {
                     query: this.filmName
                 }
             })
             .then((response) => {
                 this.cardFilms = response.data.results;
+                for (let i=0; i < this.cardFilms.length; i++) {
+                    if (this.cardFilms[i].original_language == 'en') {
+                        this.cardFilms[i].original_language = 'gb';
+                    }
+                    if (this.cardFilms[i].original_language == 'ja') {
+                        this.cardFilms[i].original_language = 'jp';
+                    }
+                    this.flagFilm.push(this.cardFilms[i].original_language);
+                    this.flagFilm[i] = "https://www.bandiere-mondo.it/data/flags/w580/" + this.cardFilms[i].original_language + ".png" 
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+            axios
+            .get(this.queryPathTV, {
+                params: {
+                    query: this.filmName
+                }
+            })
+            .then((response) => {
+                this.cardSeries = response.data.results;
+                for (let i=0; i < this.cardSeries.length; i++) {
+                    if (this.cardSeries[i].original_language == 'en') {
+                        this.cardSeries[i].original_language = 'gb';
+                    }
+                    if (this.cardSeries[i].original_language == 'ja') {
+                        this.cardSeries[i].original_language = 'jp';
+                    }
+                    this.flagSerie.push(this.cardSeries[i].original_language);
+                    this.flagSerie[i] = "https://www.bandiere-mondo.it/data/flags/w580/" + this.cardSeries[i].original_language + ".png" 
+                }
             })
             .catch(function (error) {
                 console.log(error);
