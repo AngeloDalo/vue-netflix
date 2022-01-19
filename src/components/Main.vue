@@ -16,7 +16,7 @@
 </template>
 
 <script>
-//import axios from 'axios';
+import axios from 'axios';
 import Search from "./Search.vue"
 export default {
     name: 'Main',
@@ -26,18 +26,32 @@ export default {
     },
     data () {
         return {
-            filmName: null,
+            cardFilm: null,
+            filmName: 'no',
+            queryPath: 'https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d',
         }
     },
     computed: {
     },
     created() {
-
     },
     methods: {
         searchFilm(event) {
             this.filmName  = event;
             console.log(this.filmName);
+            axios
+            .get(this.queryPath, {
+                params: {
+                    query: this.filmName
+                }
+            })
+            .then((response) => {
+                this.cardFilm = response.data.results;
+                console.log(this.cardFilm);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         }
     }
 }
