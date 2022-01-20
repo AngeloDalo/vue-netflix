@@ -31,6 +31,9 @@ export default {
 .search {
     position: relative;
     left: 41%;
+    input {
+      border: 2px solid black;
+    }
     button {
         margin-left: 2em;
     }

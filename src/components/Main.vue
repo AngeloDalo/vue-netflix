@@ -58,8 +58,9 @@ export default {
             cardFilms: null, //contiene tutte le carte dei film
             cardSeries: null, //contiene tutte le carte per le serie
             filmSerieName: '', //film o serie inserito nell'input
-            queryPathFILM: 'https://api.themoviedb.org/3/search/movie?api_key=c84442c7cda19b672849e1f2bfc0459d',
-            queryPathTV: 'https://api.themoviedb.org/3/search/tv?api_key=c84442c7cda19b672849e1f2bfc0459d&query='
+            api: 'c84442c7cda19b672849e1f2bfc0459d',
+            queryPathFILM: 'https://api.themoviedb.org/3/search/movie?',
+            queryPathTV: 'https://api.themoviedb.org/3/search/tv?'
         }
     },
     computed: {
@@ -74,6 +75,7 @@ export default {
             .get(this.queryPathFILM, {
                 params: {
                     //parametro dinamico del link
+                    api_key: this.api,
                     query: this.filmSerieName
                 }
             })
@@ -83,7 +85,7 @@ export default {
                 //per determinate lingue bisogna modificare il nome per trovare la bandiera
                 for (let i=0; i < this.cardFilms.length; i++) {
                     if (this.cardFilms[i].original_language == 'en') {
-                        this.cardFilms[i].original_language = 'gb';
+                        this.cardFilms[i].original_language = 'us';
                     }
                     if (this.cardFilms[i].original_language == 'ja') {
                         this.cardFilms[i].original_language = 'jp';
@@ -102,6 +104,7 @@ export default {
             axios
             .get(this.queryPathTV, {
                 params: {
+                    api_key: this.api,
                     query: this.filmSerieName
                 }
             })
@@ -109,7 +112,7 @@ export default {
                 this.cardSeries = response.data.results;
                 for (let i=0; i < this.cardSeries.length; i++) {
                     if (this.cardSeries[i].original_language == 'en') {
-                        this.cardSeries[i].original_language = 'gb';
+                        this.cardSeries[i].original_language = 'us';
                     }
                     if (this.cardSeries[i].original_language == 'ja') {
                         this.cardSeries[i].original_language = 'jp';
