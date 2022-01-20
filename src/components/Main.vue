@@ -14,6 +14,8 @@
                     <MainFilmSerie
                     v-for="(cardFilm, index) in cardFilms"
                     :key="index"
+                    :srcImg = "imgFilm[index]"
+                    :altImg = "cardFilm.title"
                     :title = "cardFilm.title"
                     :originalTitle = "cardFilm.original_title"
                     :language = "cardFilm.original_language"
@@ -26,7 +28,9 @@
                 <ul class="row mt-5">
                     <MainFilmSerie
                     v-for="(cardSerie, index) in cardSeries"
-                    :key="index"
+                    :key="index"       
+                    :srcImg = "imgSerie[index]"
+                    :altImg = "cardSerie.title"                               
                     :title = "cardSerie.name"
                     :originalTitle = "cardSerie.original_name"
                     :language = "cardSerie.original_language"
@@ -55,12 +59,19 @@ export default {
         return {
             flagFilm: [], //link della bandiera per i film
             flagSerie: [],  //link della bandiera per le serie
+            imgFilm: [], //immagini dei film
+            imgSerie: [], //immagini delle serie
             cardFilms: null, //contiene tutte le carte dei film
             cardSeries: null, //contiene tutte le carte per le serie
             filmSerieName: '', //film o serie inserito nell'input
             api: 'c84442c7cda19b672849e1f2bfc0459d',
             queryPathFILM: 'https://api.themoviedb.org/3/search/movie?',
-            queryPathTV: 'https://api.themoviedb.org/3/search/tv?'
+            queryPathTV: 'https://api.themoviedb.org/3/search/tv?',
+            baseImg: 'https://image.tmdb.org/t/p/',
+            smallSize: 'w500/',
+            mediumSize: 'w1000/',
+            bigSize: 'w1920/',
+            //ESEMPIO: https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
         }
     },
     computed: {
@@ -91,9 +102,10 @@ export default {
                         this.cardFilms[i].original_language = 'jp';
                     }
                     //nel fleg film andranno le iniziali della lingua
-                    this.flagFilm.push(this.cardFilms[i].original_language);
                     //creato un link dinamico per inserire la bandiera
+                    this.cardFilms[i].vote_average = Math.round(this.cardFilms[i].vote_average / 2);
                     this.flagFilm[i] = "https://www.bandiere-mondo.it/data/flags/w580/" + this.cardFilms[i].original_language + ".png" 
+                    this.imgFilm[i] = this.baseImg + this.smallSize + this.cardFilms[i].backdrop_path;
                 }
             })
             .catch(function (error) {
@@ -116,9 +128,10 @@ export default {
                     }
                     if (this.cardSeries[i].original_language == 'ja') {
                         this.cardSeries[i].original_language = 'jp';
-                    }
-                    this.flagSerie.push(this.cardSeries[i].original_language);
+                    }     
+                    this.cardSeries[i].vote_average = Math.round(this.cardSeries[i].vote_average / 2);
                     this.flagSerie[i] = "https://www.bandiere-mondo.it/data/flags/w580/" + this.cardSeries[i].original_language + ".png" 
+                    this.imgSerie[i] = this.baseImg + this.smallSize + this.cardSeries[i].backdrop_path;
                 }
             })
             .catch(function (error) {
