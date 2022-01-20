@@ -1,6 +1,6 @@
 <template>
   <header>
-      <h1>BoolFlix</h1>
+      <h1>BOOLFLIX</h1>
   </header>
 </template>
 
@@ -19,7 +19,13 @@ export default {
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
 header {
-    margin-top: 3em;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+    background-color: black;
+    height: 100px;
+    h1 {
+        color: red;
+    }
 }
 </style>

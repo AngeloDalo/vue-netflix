@@ -2,7 +2,7 @@
   <main>
       <div class="container-fluid">
           <div class="row mt-5">
-              <div class="col-12">
+              <div class="col-12 d-flex justify-content-center">
                   <Search
                         @searchFilm="searchFilm($event)"
                    />
@@ -104,7 +104,7 @@ export default {
                         this.cardFilms[i].original_language = 'jp';
                     }
                     //nel fleg film andranno le iniziali della lingua
-                    //creato un link dinamico per inserire la bandiera
+                    //creato un link dinamico per inserire la bandiera e l'immagine
                     this.cardFilms[i].vote_average = Math.round(this.cardFilms[i].vote_average / 2);
                     this.flagFilm[i] = "https://www.bandiere-mondo.it/data/flags/w580/" + this.cardFilms[i].original_language + ".png" 
                     this.imgFilm[i] = this.baseImg + this.smallSize + this.cardFilms[i].backdrop_path;
@@ -147,4 +147,12 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
+.container-fluid {
+    background-color: rgb(59, 59, 59);
+    .container {
+        h1 {
+            color: red;
+        }
+    }
+}
 </style>

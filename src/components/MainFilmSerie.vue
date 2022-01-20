@@ -1,5 +1,5 @@
 <template>
-    <li class="col-3 mb-5">
+    <li class="col-xl-3 col-lg-4 col-md-5 col-sm-6 mb-5">
         <img class="front-img"
         :src="srcImg"
         :alt="altImg">
@@ -9,7 +9,6 @@
             <i class="fas fa-star yellow" v-for="(i, index) in  vote" :key="index+originalTitle"></i>
             <i class="fas fa-star grey" v-for="(i, index) in  (5-vote)" :key="index+originalTitle+i"></i>
         </div>
-        <!-- <h4> {{ vote }} </h4> -->
         <img class="flag-image"
         :src="src"
         :alt="alt">
@@ -30,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 li {
-    overflow: hidden;
+    height: 350px;
     h1 {
         font-size: 1.5em;
     }
@@ -42,6 +41,9 @@ li {
     }
     h4 {
         font-size: 0.8em;
+    }
+    h1, h2, h3, h4 {
+        color: white;
     }
     .yellow {
         color: yellow;
@@ -55,5 +57,6 @@ li {
 }
 .front-img {
     width: 100%;
+    color: white;
 }
 </style>
