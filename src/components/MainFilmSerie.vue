@@ -5,7 +5,11 @@
         :alt="altImg">
         <h1> {{ title }} </h1>
         <h2> {{ originalTitle }} </h2>
-        <h4> {{ vote }} </h4>
+        <div class="div">
+            <i class="fas fa-star yellow" v-for="(i, index) in  vote" :key="index+originalTitle"></i>
+            <i class="fas fa-star grey" v-for="(i, index) in  (5-vote)" :key="index+originalTitle+i"></i>
+        </div>
+        <!-- <h4> {{ vote }} </h4> -->
         <img class="flag-image"
         :src="src"
         :alt="alt">
@@ -38,6 +42,12 @@ li {
     }
     h4 {
         font-size: 0.8em;
+    }
+    .yellow {
+        color: yellow;
+    }
+    .grey {
+        color: grey;
     }
 }
 .flag-image {

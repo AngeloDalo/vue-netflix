@@ -13,13 +13,14 @@
                 <ul class="row mt-5">
                     <MainFilmSerie
                     v-for="(cardFilm, index) in cardFilms"
-                    :key="index"
+                    :key="index+cardFilm.title"
                     :srcImg = "imgFilm[index]"
                     :altImg = "cardFilm.title"
                     :title = "cardFilm.title"
                     :originalTitle = "cardFilm.original_title"
                     :language = "cardFilm.original_language"
                     :vote = "cardFilm.vote_average"
+                    :i = 1
                     :src = "flagFilm[index]"
                     :alt = "cardFilm.original_language"
                     />
@@ -28,13 +29,14 @@
                 <ul class="row mt-5">
                     <MainFilmSerie
                     v-for="(cardSerie, index) in cardSeries"
-                    :key="index"       
+                    :key="index+cardSerie.title"       
                     :srcImg = "imgSerie[index]"
                     :altImg = "cardSerie.title"                               
                     :title = "cardSerie.name"
                     :originalTitle = "cardSerie.original_name"
                     :language = "cardSerie.original_language"
                     :vote = "cardSerie.vote_average"
+                    :i = 1
                     :src = "flagSerie[index]"
                     :alt = "cardSerie.original_language"
                     />
