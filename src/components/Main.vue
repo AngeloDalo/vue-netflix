@@ -70,7 +70,7 @@ export default {
             queryPathFILM: 'https://api.themoviedb.org/3/search/movie?',
             queryPathTV: 'https://api.themoviedb.org/3/search/tv?',
             baseImg: 'https://image.tmdb.org/t/p/',
-            smallSize: 'w500/',
+            smallSize: 'w342/',
             mediumSize: 'w1000/',
             bigSize: 'w1920/',
             //ESEMPIO: https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
