@@ -33,6 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 li {
+    border: 2px solid white;
     height: 350px;
     .imgHover {
         background-color: black;
