@@ -1,0 +1,61 @@
+@mixin li {
+    .container-card {
+        border: 2px solid white;
+        height: 200px;
+        &:hover .imgHover {
+            display: block;
+        }
+        &:hover .imgFilm {
+            display: none;
+        }
+        &:hover {
+            height: 400px;
+        }
+        .imgHover {
+            display: none;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+            .voto {
+                color: white;
+            }
+            h1 {
+                font-size: 1.3em;
+            }
+            h2 {
+                font-size: 0.8em;
+            }
+            h3 {
+                font-size: 0.7em;
+            }
+            h4 {
+                font-size: 0.7em;
+            }
+            h1, h2, h3, h4 {
+                color: white;
+            }
+            .yellow {
+                color: yellow;
+            }
+            .grey {
+                color: grey;
+            } 
+            .overview {
+                color: white;
+                font-size: 0.8em;
+            }      
+            .flag-image {
+                width: 40px;
+            } 
+        }
+        .imgFilm {
+            height: 100%;
+            width: 100%;
+            .front-img {
+                width: 100%;
+                height: 100%;
+                color: white;
+            }        
+        }
+    }
+}

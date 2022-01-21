@@ -18,11 +18,8 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
+@import "../assets/scss/partials/_header.scss";
 header {
-    display: flex;
-    align-items: center;
-    padding-left: 2em;
-    background-color: black;
-    height: 100px;
+    @include header;
 }
 </style>

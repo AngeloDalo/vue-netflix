@@ -7,16 +7,17 @@
                 :alt="altImg">
             </div>
             <div class="div imgHover text-start p-2">
-                <h1> {{ title }} </h1>
-                <h2> {{ originalTitle }} </h2>
-                <div class="div">
+                <h1>Titolo: {{ title }} </h1>
+                <h2>Titolo originale: {{ originalTitle }} </h2>
+                <div class="voto">
+                    Voto:
                     <i class="fas fa-star yellow" v-for="(i, index) in  vote" :key="index+title"></i>
                     <i class="fas fa-star grey" v-for="(i, index) in  (5-vote)" :key="index+title+i"></i>
                 </div>
                 <img class="flag-image"
                 :src="src"
                 :alt="alt">
-                <p class="overview"> {{ overview }} </p>
+                <p class="overview">Overview: {{ overview }} </p>
             </div>
         </div>
     </li>
@@ -35,62 +36,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/partials/_filmSerie.scss";
 li {
-    .container-card {
-        border: 2px solid white;
-        height: 200px;
-        &:hover .imgHover {
-            display: block;
-        }
-        &:hover .imgFilm {
-            display: none;
-        }
-        &:hover {
-            height: 400px;
-        }
-        .imgHover {
-            display: none;
-            height: 100%;
-            background-color: black;
-            overflow: hidden;
-            h1 {
-                font-size: 1.3em;
-            }
-            h2 {
-                font-size: 0.8em;
-            }
-            h3 {
-                font-size: 0.7em;
-            }
-            h4 {
-                font-size: 0.7em;
-            }
-            h1, h2, h3, h4 {
-                color: white;
-            }
-            .yellow {
-                color: yellow;
-            }
-            .grey {
-                color: grey;
-            } 
-            .overview {
-                color: white;
-                font-size: 0.8em;
-            }       
-        }
-        .imgFilm {
-            height: 100%;
-            width: 100%;
-            .front-img {
-                width: 100%;
-                height: 100%;
-                color: white;
-            }        
-        }
-    }
-}
-.flag-image {
-    width: 40px;
+    @include li;
 }
 </style>

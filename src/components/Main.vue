@@ -155,12 +155,8 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/partials/_variables.scss";
 @import "../assets/scss/partials/_commons.scss";
+@import "../assets/scss/partials/_main.scss";
 .container-fluid {
-    background-color: rgb(59, 59, 59);
-    .container {
-        h1 {
-            color: red;
-        }
-    }
+    @include main;
 }
 </style>

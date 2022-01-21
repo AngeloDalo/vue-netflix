@@ -1,0 +1,8 @@
+@mixin main  {
+    background-color: rgb(59, 59, 59);
+    .container {
+        h1 {
+            color: red;
+        }
+    }
+}
