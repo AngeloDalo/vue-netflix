@@ -36,6 +36,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/partials/_variables.scss";
+@import "../assets/scss/partials/_commons.scss";
 @import "../assets/scss/partials/_filmSerie.scss";
 li {
     @include li;
