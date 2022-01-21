@@ -1,5 +1,5 @@
 @mixin main  {
-    background-color: rgb(59, 59, 59);
+    background-color: $mainColor;
     .container {
         h1 {
             color: red;
