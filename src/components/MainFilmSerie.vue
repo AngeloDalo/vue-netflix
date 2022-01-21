@@ -1,20 +1,22 @@
 <template>
     <li class="col-xl-3 col-lg-4 col-md-5 col-sm-6 mb-5">
-        <div class="div imgFilm">
-            <img class="front-img"
-            :src="srcImg"
-            :alt="altImg">
-        </div>
-        <div class="div imgHover">
-            <h1> {{ title }} </h1>
-            <h2> {{ originalTitle }} </h2>
-            <div class="div">
-                <i class="fas fa-star yellow" v-for="(i, index) in  vote" :key="index+title"></i>
-                <i class="fas fa-star grey" v-for="(i, index) in  (5-vote)" :key="index+title+i"></i>
+        <div class="container-card">
+            <div class="div imgFilm">
+                <img class="front-img"
+                :src="srcImg"
+                :alt="altImg">
             </div>
-            <img class="flag-image"
-            :src="src"
-            :alt="alt">
+            <div class="div imgHover">
+                <h1> {{ title }} </h1>
+                <h2> {{ originalTitle }} </h2>
+                <div class="div">
+                    <i class="fas fa-star yellow" v-for="(i, index) in  vote" :key="index+title"></i>
+                    <i class="fas fa-star grey" v-for="(i, index) in  (5-vote)" :key="index+title+i"></i>
+                </div>
+                <img class="flag-image"
+                :src="src"
+                :alt="alt">
+            </div>
         </div>
     </li>
 </template>
@@ -33,11 +35,19 @@ export default {
 
 <style lang="scss" scoped>
 li {
-    border: 2px solid white;
-    height: 350px;
-    .imgHover {
+    .container-card {
+        border: 2px solid white;
+        height: 350px;
+        &:hover .imgHover {
+            display: block;
+        }
+        &:hover .imgFilm {
+            display: none;
+        }
+        .imgHover {
+        display: none;
+        height: 100%;
         background-color: black;
-        height: 50%;
         h1 {
             font-size: 1.5em;
         }
@@ -61,13 +71,14 @@ li {
         }        
     }
     .imgFilm {
-        height: 50%;
+        height: 100%;
         width: 100%;
         .front-img {
             width: 100%;
             height: 100%;
             color: white;
         }        
+    }
     }
 }
 .flag-image {
