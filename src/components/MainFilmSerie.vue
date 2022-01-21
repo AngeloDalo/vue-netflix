@@ -6,7 +6,7 @@
                 :src="srcImg"
                 :alt="altImg">
             </div>
-            <div class="div imgHover">
+            <div class="div imgHover text-start p-2">
                 <h1> {{ title }} </h1>
                 <h2> {{ originalTitle }} </h2>
                 <div class="div">
@@ -16,6 +16,7 @@
                 <img class="flag-image"
                 :src="src"
                 :alt="alt">
+                <p class="overview"> {{ overview }} </p>
             </div>
         </div>
     </li>
@@ -24,7 +25,7 @@
 <script>
 export default {
     name: "MainFilmSerie",
-    props: ['src', 'alt', 'title', 'originalTitle', 'language', 'vote', 'srcImg', 'altImg'],
+    props: ['src', 'alt', 'title', 'originalTitle', 'language', 'vote', 'srcImg', 'altImg', 'overview'],
     data() {
         return {
 
@@ -45,40 +46,45 @@ li {
             display: none;
         }
         .imgHover {
-        display: none;
-        height: 100%;
-        background-color: black;
-        h1 {
-            font-size: 1.5em;
-        }
-        h2 {
-            font-size: 1em;
-        }
-        h3 {
-            font-size: 0.8em;
-        }
-        h4 {
-            font-size: 0.8em;
-        }
-        h1, h2, h3, h4 {
-            color: white;
-        }
-        .yellow {
-            color: yellow;
-        }
-        .grey {
-            color: grey;
-        }        
-    }
-    .imgFilm {
-        height: 100%;
-        width: 100%;
-        .front-img {
-            width: 100%;
+            display: none;
             height: 100%;
-            color: white;
-        }        
-    }
+            background-color: black;
+            overflow: hidden;
+            h1 {
+                font-size: 1.3em;
+            }
+            h2 {
+                font-size: 0.8em;
+            }
+            h3 {
+                font-size: 0.7em;
+            }
+            h4 {
+                font-size: 0.7em;
+            }
+            h1, h2, h3, h4 {
+                color: white;
+            }
+            .yellow {
+                color: yellow;
+            }
+            .grey {
+                color: grey;
+            } 
+            .overview {
+                color: white;
+                font-size: 0.8em;
+            }       
+        }
+        .imgFilm {
+            height: 100%;
+            width: 100%;
+            .front-img {
+                width: 100%;
+                height: 100%;
+                color: white;
+            }        
+        }
     }
 }
 .flag-image {

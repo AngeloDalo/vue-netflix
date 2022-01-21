@@ -23,6 +23,7 @@
                     :i = 1
                     :src = "flagFilm[index]"
                     :alt = "cardFilm.original_language"
+                    :overview = "cardFilm.overview"
                     />
                 </ul>
                 <img src="../assets/img/Serietv.png" alt="">
@@ -39,6 +40,7 @@
                     :i = 1
                     :src = "flagSerie[index]"
                     :alt = "cardSerie.original_language"
+                    :overview = "cardSerie.overview"
                     />
                 </ul>
           </div>
