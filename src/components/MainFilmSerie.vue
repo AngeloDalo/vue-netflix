@@ -9,8 +9,8 @@
             <h1> {{ title }} </h1>
             <h2> {{ originalTitle }} </h2>
             <div class="div">
-                <i class="fas fa-star yellow" v-for="(i, index) in  vote" :key="index+originalTitle"></i>
-                <i class="fas fa-star grey" v-for="(i, index) in  (5-vote)" :key="index+originalTitle+i"></i>
+                <i class="fas fa-star yellow" v-for="(i, index) in  vote" :key="index+title"></i>
+                <i class="fas fa-star grey" v-for="(i, index) in  (5-vote)" :key="index+title+i"></i>
             </div>
             <img class="flag-image"
             :src="src"

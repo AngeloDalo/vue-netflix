@@ -1,6 +1,6 @@
 <template>
   <header>
-      <h1>BOOLFLIX</h1>
+      <img src="../assets/img/Boolflix.png" alt="">
   </header>
 </template>
 
@@ -24,8 +24,5 @@ header {
     padding-left: 2em;
     background-color: black;
     height: 100px;
-    h1 {
-        color: red;
-    }
 }
 </style>

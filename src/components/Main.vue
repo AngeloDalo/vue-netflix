@@ -4,16 +4,16 @@
           <div class="row mt-5">
               <div class="col-12 d-flex justify-content-center">
                   <Search
-                        @searchFilm="searchFilm($event)"
+                        @searchFilm="searchFilmSerie($event)"
                    />
               </div>
           </div>
           <div class="container mt-5 text-center">
-                <h1>FILM</h1>
+                <img src="../assets/img/Film.png" alt="">
                 <ul class="row mt-5">
                     <MainFilmSerie
                     v-for="(cardFilm, index) in cardFilms"
-                    :key="index+cardFilm.title"
+                    :key="index+cardFilms"
                     :srcImg = "imgFilm[index]"
                     :altImg = "cardFilm.title"
                     :title = "cardFilm.title"
@@ -25,11 +25,11 @@
                     :alt = "cardFilm.original_language"
                     />
                 </ul>
-                <h1>SERIE TV</h1>
+                <img src="../assets/img/Serietv.png" alt="">
                 <ul class="row mt-5">
                     <MainFilmSerie
                     v-for="(cardSerie, index) in cardSeries"
-                    :key="index+cardSerie.title"       
+                    :key="index+cardSeries"       
                     :srcImg = "imgSerie[index]"
                     :altImg = "cardSerie.title"                               
                     :title = "cardSerie.name"
@@ -81,7 +81,7 @@ export default {
     created() {
     },
     methods: {
-        searchFilm(event) {
+        searchFilmSerie(event) {
             //al filmSerieName andrà il valore inserito nell'input (event)
             this.filmSerieName  = event;
             axios
@@ -108,6 +108,9 @@ export default {
                     this.cardFilms[i].vote_average = Math.round(this.cardFilms[i].vote_average / 2);
                     this.flagFilm[i] = "https://www.bandiere-mondo.it/data/flags/w580/" + this.cardFilms[i].original_language + ".png" 
                     this.imgFilm[i] = this.baseImg + this.smallSize + this.cardFilms[i].backdrop_path;
+                    if (this.cardFilms[i].backdrop_path == null) {
+                        this.imgFilm[i] = 'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png';
+                    }
                 }
             })
             .catch(function (error) {
@@ -134,6 +137,9 @@ export default {
                     this.cardSeries[i].vote_average = Math.round(this.cardSeries[i].vote_average / 2);
                     this.flagSerie[i] = "https://www.bandiere-mondo.it/data/flags/w580/" + this.cardSeries[i].original_language + ".png" 
                     this.imgSerie[i] = this.baseImg + this.smallSize + this.cardSeries[i].backdrop_path;
+                    if (this.cardSeries[i].backdrop_path == null) {
+                        this.imgSerie[i] = 'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png';
+                    }
                 }
             })
             .catch(function (error) {
