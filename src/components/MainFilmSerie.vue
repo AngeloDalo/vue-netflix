@@ -38,12 +38,15 @@ export default {
 li {
     .container-card {
         border: 2px solid white;
-        height: 350px;
+        height: 200px;
         &:hover .imgHover {
             display: block;
         }
         &:hover .imgFilm {
             display: none;
+        }
+        &:hover {
+            height: 400px;
         }
         .imgHover {
             display: none;
